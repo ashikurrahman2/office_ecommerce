@@ -1,0 +1,172 @@
+@extends('frontend.layouts.user_panel')
+
+@section('panel_content')
+<style>
+    .card-container {
+        max-width: 900px;
+        margin: auto;
+        border: 1px solid #ddd;
+        margin-bottom: 1rem;
+    }
+    .card-container .card-header {
+        /* font-weight: bold; */
+        font-size: 1.1rem;
+        padding: 1rem;
+        background-color: #f9f9f9;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .product-image {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 0.5rem;
+    }
+    .btn-start {
+        background-color: #4caf50;
+        color: white;
+        width: 100%;
+        padding: 0.4rem;
+        font-size: 1rem;
+        border: none;
+        margin-top: 0.5rem;
+        border-radius: 5px;
+    }
+    .btn-cancel {
+        background-color: #f73838;
+        color: #fff;
+        width: 100%;
+        padding: 0.4rem;
+        font-size: 1rem;
+        border: none;
+        margin-top: 0.5rem;
+        border-radius: 5px;
+    }
+    .countdown {
+        color: #666;
+        font-size: 0.9rem;
+        margin-top: 1rem;
+        text-align: left;
+    }
+    .tracking-code {
+        color: green;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    /* .customs-shipping {
+        font-weight: bold;
+        text-align: right;
+        color: #007bff;
+    } */
+    .customs-shipping-value {
+        background-color: #e0f3ff;
+        color: #007bff;
+        padding: 2px 8px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        margin-left: 4px;
+    }
+    .product-details-link {
+        color: #007bff;
+        font-size: 0.9rem;
+        text-decoration: none;
+    }
+    .section-label {
+        font-weight: bold;
+    }
+</style>
+    @if (count($requestProducts) > 0)
+        @foreach($requestProducts as $item)
+            <div class="card card-container">
+                @if ($loop->first)
+                    <div class="card-header d-none d-md-flex">
+                        <div class="col-md-4">Product Description</div>
+                        <div class="col-md-4">Warehouse Address</div>
+                        <div class="col-md-4">Status</div>
+                    </div>
+                @endif
+
+                <div class="card-body row">
+                    <div class="col-md-4">
+                        @php 
+                            $images = json_decode($item->images); 
+                        @endphp
+
+                        @if (count($images) > 0)
+                            @foreach ($images as $key => $image)
+                                @if ($key < 3)
+                                    <img src="{{ asset('public/'.$image) }}" class="img-fluid img-thumbnail product-image mb-2 rounded-start" alt="{{ $item->product_title }}">
+                                @endif
+                            @endforeach
+                        @endif
+
+                        <p class="mb-1"><strong>Title:</strong> <a href="{{ $item->product_link }}">{{ $item->product_title }}</a></p>
+
+                        <p class="mb-1">
+                            <strong>Status:</strong>
+                            <span class="badge badge-success status-style">Shipment Done</span>
+                        </p>
+
+                        <p class="mb-1">
+                            <a class="text-primary product-details-link" data-toggle="collapse" href="#details-{{ $key }}"
+                                role="button" aria-expanded="false" aria-controls="collapseExample">Product details &#9662;
+                            </a>
+                        </p>
+
+                        <div class="collapse" id="details-{{ $key }}">
+                            <div style="width: 100%; overflow-wrap: break-word;">
+                                <span><strong>Description:</strong> {{ $item->description }}</span><br>
+                                <span><strong>Price:</strong> {{ number_format($item->price, 2) }}</span><br>
+                                <span><strong>Quantity:</strong> {{ $item->quantity }}</span><br>
+                                <span><strong>Category:</strong> {{ $item->category_name }}</span><br>
+                                <span><strong>Product Weight:</strong> {{ $item->weight }} KG</span><br>
+                                <span><strong>Ship to:</strong>
+                                    {{ \Carbon\Carbon::parse($item->ship_to)->format('Y-m-d') }}</span><br>
+                                <span><strong>Valid to:</strong>
+                                    {{ \Carbon\Carbon::parse($item->valid_to)->format('Y-m-d') }}</span><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        @if($item->status == 'approved')
+                            <p class="mb-1"><span class="section-label">Name:</span> Frey</p>
+                            <p class="mb-1"><span class="section-label">Mobile:</span> 17604702654</p>
+                            <p class="mb-1"><span class="section-label">Address:</span> 广州市白云区槎路同雅东街59号. 同德仓库A3<br>
+                            Baiyun District, Guangzhou City. 59 Tong Ya Dong Street, Xicha Road. Tongdecang A3</p>
+                        @endif
+                    </div>
+                    <div class="col-md-4">
+                        <span class="badge badge-success p-3 fs-14">Shipment Done. <br>  Abroad To Bangladesh</span>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="mb-1 fs-15"><strong>Tracking Code:</strong> 
+                            @if($item->status == 'approved')
+                                {{ $item->order_code }}
+                            @endif
+                        </p>
+                    </div>
+                    <div class="customs-shipping">
+                        <p class="mb-1 fs-15">
+                            <strong>Customs & Shipping:</strong> 
+                            @if($item->status == 'approved')
+                                <span class="customs-shipping-value">00 /-kg</span>  
+                            @endif
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    @else
+        <div class="row">
+            <div class="col">
+                <div class="text-center bg-white p-4 border">
+                    <img class="mw-100 h-200px" src="{{ static_asset('assets/img/nothing.svg') }}" alt="Image">
+                    <h5 class="mb-0 h5 mt-3">{{ translate("There isn't anything added yet") }}</h5>
+                </div>
+            </div>
+        </div>
+    @endif
+@endsection
