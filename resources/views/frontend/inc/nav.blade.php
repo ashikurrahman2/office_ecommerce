@@ -114,7 +114,7 @@
     <div class="input-group" style="overflow: hidden; border: 1px solid #007bff; border-radius: 60px;">
 
         <!-- Country dropdown container (static name for now) -->
-        <div class="input-group-prepend">
+        {{-- <div class="input-group-prepend">
             <select class="form-select border-0 bg-light pl-3"
                 style="min-width: 90px; font-weight: 600;">
                 <option selected>All</option>
@@ -123,7 +123,7 @@
                 <option>UK</option>
                 <option>UAE</option>
             </select>
-        </div>
+        </div> --}}
 
         <!-- Keyword Input -->
         <input type="text" class="form-control border-0 fs-14 hov-animate-outline"
@@ -356,9 +356,9 @@
                         <!-- Shopping Cart Section -->
                 <!-- <li class="list-inline-item p-1" id="shopping-cart">                            -->
                 <!-- Cart dropdown inside the shopping cart -->
-                <div class="d-none d-xl-block align-self-nav-cart-box dropdown bg-red h-100 showstretch ml-5 mr-0 has-transition bg-black-10"
+                <div class="d-none d-xl-block align-self-stretch ml-5 mr-0 has-transition bg-black-10"
                     data-hover="dropdown">
-                    <div  class="nav-cart-box dropdown bg-red h-100" id="cart_items" style="width: max-content;">
+                    <div style="background-color:unset !important;" class="nav-cart-box dropdown bg-red h-100" id="cart_items" style="width: max-content;">
                         @include('frontend.' . get_setting('homepage_select') . '.partials.cart')
                     </div>
                 </div>

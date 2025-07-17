@@ -380,6 +380,11 @@
                             </section>
                         </div>
 
+
+   
+
+
+
                         <!-- Machinery & Equipment Section -->
                         <section class="mb-4 mt-3">
                             <div id="category_wise_products">

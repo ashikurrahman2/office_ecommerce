@@ -433,23 +433,12 @@
                         <div id="section_featured">
                             <section class="mb-2 mb-md-3 mt-2 mt-md-3">
                                 <div class="container pl-0">
-                                    <div class="d-flex mb-2 mb-md-3 align-items-baseline justify-content-between">
-                                        <h3 class="fs-16 fs-md-20 fw-700 mb-2 mb-sm-0 d-flex align-items-center">
-                                            <!-- Pink shopping bag icon -->
-                                            <i class="las la-shopping-bag mr-2" style="color: #5E00B9; font-size: 1.4em;"></i>
-                                            <span>{{ translate("Today's Shopping Suggestion") }}</span>
-                                        </h3>
-                                        <div class="d-flex">
-                                            <a type="button" class="arrow-prev slide-arrow link-disable text-secondary mr-2"
-                                                onclick="clickToSlide('slick-prev','section_featured')">
-                                                <i class="las la-angle-left fs-20 fw-600"></i>
-                                            </a>
-                                            <a type="button" class="arrow-next slide-arrow text-secondary ml-2"
-                                                onclick="clickToSlide('slick-next','section_featured')">
-                                                <i class="las la-angle-right fs-20 fw-600"></i>
-                                            </a>
-                                        </div>
-                                    </div>
+                                   <div class="text-center mt-2">
+    <span class="fs-24 fw-700">{{ translate("Today's deals") }}</span>
+</div>
+
+                                   
+                                    
                                     <div class="px-sm-3">
                                         <div class="aiz-carousel sm-gutters-16 arrow-none" data-items="5" data-xl-items="5"
                                             data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="2"
@@ -479,9 +468,9 @@
                                     @php
                                         $categoryName =
                                         $category['id'] === 'otc-10'
-                                            ? 'Bag\'s'
+                                            ? '\'s'
                                             : ($category['id'] === 'otc-18'
-                                                ? 'Snekers'
+                                                ? 'SBagnekers'
                                                 : ($category['id'] === 'otc-13'
                                                     ? 'Shirt\'s'
                                                     : ''));
@@ -490,13 +479,15 @@
                                         <div class="container px-1">
                                             <!-- Top Section -->
                                             <div
-                                                class="mb-3 mb-md-4 border-bottom align-items-baseline justify-content-between">
+                                                class="mb-3 mb-md-4 text-center">
+                                                
                                                 <!-- Title -->
                                                 <h3 class="fs-16 fs-md-20 fw-700 mb-2 mb-sm-0 pb-3">
-                                                    <span class="">{{ $categoryName}}</span>
+                                                    {{-- <span class="text-center">{{ $categoryName}}</span> --}}
+                                                    <span class="fs-24 fw-700">More to love</span>
                                                 </h3>
                                                 <!-- Links -->
-                                                <div class="justify-content-between align-items-center mb-3">
+                                                {{-- <div class="justify-content-between align-items-center mb-3">
                                                     <form
                                                         action="{{ route('category_wise_products', ['category' => $category['id']]) }}"
                                                         method="POST">
@@ -507,7 +498,7 @@
                                                     
                                                         <button class="btn btn-sm btn-outline-primary">Best Buy</button>
                                                     </form>
-                                                </div>
+                                                </div> --}}
                                             </div>
 
                                             <!-- Products Section -->
@@ -555,7 +546,7 @@
 
                             <div class="advertisement-container">
                                 @foreach ($banner_3_images as $key => $image)
-                                    <div class="advertisement-box mb-3 position-relative">
+                                    {{-- <div class="advertisement-box mb-3 position-relative">
                                         <a href="{{ $homeBanner3Links[$key] ?? '#' }}" class="d-block position-relative">
                                             <img src="{{ static_asset('assets/img/placeholder-rect.jpg') }}"
                                                 data-src="{{ uploaded_asset($image) }}"
@@ -570,7 +561,7 @@
                                                 </button>
                                             </span>
                                         </a>
-                                    </div>
+                                    </div> --}}
                                 @endforeach
                             </div>
                         @endif
@@ -578,10 +569,15 @@
 
                 </div>
             </section>
+
+
+            <div class="view-more-wrapper">
+  <a href="#" class="view-more-btn">View More</a>
+</div>
         </div>
 
         <!-- HOT TREND Section -->
-        <section class="mb-4 mt-3">
+        {{-- <section class="mb-4 mt-3">
             <div class="container">
                 <div class="card">
 
@@ -809,7 +805,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
 
 
@@ -822,7 +818,7 @@
 
     
 
-        <section class="mb-2 mb-md-3 mt-md-3 d-none d-md-block">
+        {{-- <section class="mb-2 mb-md-3 mt-md-3 d-none d-md-block">
             <div class="container">
                 <!-- Top Section -->
                 <div class="text-center">
@@ -879,8 +875,43 @@
 
                 </div>
             </div>
-        </section>
+        </section> --}}
+ <!-- View More Button Centered & Higher -->
+{{-- <div class="view-more-wrapper">
+  <a href="#" class="view-more-btn">View More</a>
+</div> --}}
+
+<style>
+  .view-more-wrapper {
+    text-align: center;
+    margin-top: 10px; /* কম রাখলে বাটন উপরে থাকবে */
+  }
+
+  .view-more-btn {
+    background-color: black;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+  }
+
+  .view-more-btn:hover {
+    background-color: #333;
+  }
+</style>
+
 </div>
+
+{{-- <div class="text-center mt-6">
+  <a href="#" class="btn text-white bg-black rounded px-4 py-2">
+    View More
+  </a>
+</div> --}}
+
+
+
 <script>
     function submitSearchTag(tagValue) {
         const input = document.getElementById('searchInput');
