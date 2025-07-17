@@ -35,7 +35,7 @@
                         <a href="{{ get_setting('c2i_live_link') }}" target="_blank"
                             class="btn btn-white text-dark font-weight-bold border-0 d-inline-block py-2">
                             <i class="fa fa-broadcast-tower text-danger fs-16 mr-2"></i>
-                            <span>C2I Live</span>
+                            <span>ShipCart Live</span>
                         </a>
                     </li>
                 </ul>
@@ -66,7 +66,7 @@
 
 
                 <!-- Categoty Menu Button -->
-                <div class="d-none d-md-block  align-items-center btn-primary  p-2 rounded " id="category-menu-bar"
+                {{-- <div class="d-none d-md-block  align-items-center btn-primary  p-2 rounded " id="category-menu-bar"
                     style="cursor: pointer;">
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center">
@@ -89,7 +89,7 @@
                         <!-- <i class="las la-angle-down text-white" id="category-menu-bar-icon" style="font-size: 1.2rem;"></i> -->
                     </div>
 
-                </div>
+                </div> --}}
                 <!-- Header Logo -->
                 <div class="col-auto pl-0 pr-1 d-flex align-items-center">
                     <a class="d-block py-5px mr-lg-3 ml-0" href="{{ route('home') }}">
@@ -98,7 +98,7 @@
                         @endphp
                         @if ($header_logo != null)
                             <img src="{{ uploaded_asset($header_logo) }}" alt="{{ env('APP_NAME') }}"
-                                class="mw-100 h-50px h-md-40px pl-md-3" height="200" width="75">
+                                class="mw-100 h-50px h-md-40px pl-md-3" height="400" width="235">
                         @else
                             <img src="{{ static_asset('assets/img/logo.jpg') }}" alt="{{ env('APP_NAME') }}"
                                 class="mw-100 h-30px h-md-40px" height="40">
@@ -109,53 +109,55 @@
                 <!-- Search field -->
                 <div class="flex-grow-1 d-flex align-items-center bg-white mx-xl-5">
                     <div class="position-relative flex-grow-1 my-1 px-lg-0">
-                        <form id="searchForm" action="{{ route('search') }}" method="GET"
-                            class="stop-propagation mb-0" enctype="multipart/form-data">
-                            <div class="input-group border border-primary rounded" style="overflow: hidden;">
+                       <form id="searchForm" action="{{ route('search') }}" method="GET"
+    class="stop-propagation mb-0" enctype="multipart/form-data">
+    <div class="input-group" style="overflow: hidden; border: 1px solid #007bff; border-radius: 60px;">
 
-                                <!-- Country dropdown container (static name for now) -->
-                                <div class="input-group-prepend">
-                                    <select class="form-select border-0 bg-light pl-3"
-                                        style="min-width: 90px; font-weight: 600;">
-                                        <option selected>All</option>
-                                        <option>Chaina</option>
-                                        <option>USA</option>
-                                        <option>UK</option>
-                                        <option>UAE</option>
-                                    </select>
-                                </div>
+        <!-- Country dropdown container (static name for now) -->
+        <div class="input-group-prepend">
+            <select class="form-select border-0 bg-light pl-3"
+                style="min-width: 90px; font-weight: 600;">
+                <option selected>All</option>
+                <option>Chaina</option>
+                <option>USA</option>
+                <option>UK</option>
+                <option>UAE</option>
+            </select>
+        </div>
 
-                                <!-- Keyword Input -->
-                                <input type="text" class="form-control border-0 fs-14 hov-animate-outline"
-                                    name="keyword"
-                                    @isset($keyword) value="{{ $keyword }}" @endisset
-                                    placeholder="{{ translate('Search for Products or paste link') }}"
-                                    autocomplete="off" aria-label="Search" id="searchInput">
+        <!-- Keyword Input -->
+        <input type="text" class="form-control border-0 fs-14 hov-animate-outline"
+            name="keyword"
+            @isset($keyword) value="{{ $keyword }}" @endisset
+            placeholder="{{ translate('Search for Products or paste link') }}"
+            autocomplete="off" aria-label="Search" id="searchInput">
 
-                                <!-- Image Upload Input (Hidden) -->
-                                <input type="file" id="imageInput" name="image"
-                                    accept="image/jpeg, image/png, image/jpg" style="display: none;">
+        <!-- Image Upload Input (Hidden) -->
+        <input type="file" id="imageInput" name="image"
+            accept="image/jpeg, image/png, image/jpg" style="display: none;">
 
-                                <!-- Camera button -->
-                                <button type="button" class="btn btn-light border-0" onclick="triggerImageUpload()"
-                                    style="margin-top: 1px; margin-bottom: 1px; padding: 0 10px; margin-left: -40px; z-index: 999;">
-                                    <i class="fas fa-camera" style="font-size: 18px; color: #555;"></i>
-                                </button>
+        <!-- Camera button -->
+        <button type="button" class="btn btn-light border-0"
+            onclick="triggerImageUpload()"
+            style="margin-top: 1px; margin-bottom: 1px; padding: 0 10px; margin-left: -40px; z-index: 999;">
+            <i class="fas fa-camera" style="font-size: 18px; color: #555;"></i>
+        </button>
 
-                                <!-- Search Button -->
-                                <button class="btn btn-primary search-button" type="submit" id="button-addon2">
-                                    <svg id="Group_723" data-name="Group 723" xmlns="http://www.w3.org/2000/svg"
-                                        width="20.001" height="20" viewBox="0 0 20.001 20">
-                                        <path id="Path_3090" data-name="Path 3090"
-                                            d="M9.847,17.839a7.993,7.993,0,1,1,7.993-7.993A8,8,0,0,1,9.847,17.839Zm0-14.387a6.394,6.394,0,1,0,6.394,6.394A6.4,6.4,0,0,0,9.847,3.453Z"
-                                            transform="translate(-1.854 -1.854)" fill="#fff" />
-                                        <path id="Path_3091" data-name="Path 3091"
-                                            d="M24.4,25.2a.8.8,0,0,1-.565-.234l-6.15-6.15a.8.8,0,0,1,1.13-1.13l6.15,6.15A.8.8,0,0,1,24.4,25.2Z"
-                                            transform="translate(-5.2 -5.2)" fill="#fff" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </form>
+        <!-- Search Button -->
+        <button class="btn btn-primary search-button" type="submit" id="button-addon2">
+            <svg id="Group_723" data-name="Group 723" xmlns="http://www.w3.org/2000/svg"
+                width="20.001" height="20" viewBox="0 0 20.001 20">
+                <path id="Path_3090" data-name="Path 3090"
+                    d="M9.847,17.839a7.993,7.993,0,1,1,7.993-7.993A8,8,0,0,1,9.847,17.839Zm0-14.387a6.394,6.394,0,1,0,6.394,6.394A6.4,6.4,0,0,0,9.847,3.453Z"
+                    transform="translate(-1.854 -1.854)" fill="#fff" />
+                <path id="Path_3091" data-name="Path 3091"
+                    d="M24.4,25.2a.8.8,0,0,1-.565-.234l-6.15-6.15a.8.8,0,0,1,1.13-1.13l6.15,6.15A.8.8,0,0,1,24.4,25.2Z"
+                    transform="translate(-5.2 -5.2)" fill="#fff" />
+            </svg>
+        </button>
+    </div>
+</form>
+
 
                         <div id="suggestions"
                             style="display: none; position: absolute; width: 100%; background: #fff; border: 1px solid #ddd; z-index: 10;">
@@ -175,6 +177,78 @@
                         </div>
                     </div>
                 </div>
+
+{{-- Download app QR and Language --}}
+<div class="d-flex align-items-center position-relative">
+    <!-- Download the App with QR -->
+    <div class="position-relative me-3" id="downloadAppWrapper">
+        <a href="javascript:void(0)" class="d-flex align-items-center text-dark text-decoration-none" id="downloadAppBtn">
+            <i class="fas fa-qrcode me-2" style="margin-right: 3px;"></i> Download the App
+        </a>
+
+        <!-- QR Dropdown -->
+<div id="qrDropdown" class="position-absolute bg-white border shadow p-3" style="top: 100%; left: 0; display: none; z-index: 999; min-width: 360px; border-radius: 12px;">
+    <div class="d-flex align-items-center">
+        <!-- QR Code -->
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://example.com/app&size=100x100" 
+             alt="QR Code" class="img-fluid me-3" style="width: 100px; height: 100px; border-radius: 8px;">
+
+        <!-- Text and Buttons -->
+        <div class="flex-grow-1">
+            <strong class="d-block mb-2 ml-2" style="font-size: 16px;">Download the ShipCart app</strong>
+            <p class="ml-2">Scan the QR code to download</p>
+
+            <!-- Buttons -->
+            <div class="d-flex mt-2 ml-1" style="gap: 8px;">
+                <!-- Apple Store Button -->
+                <a href="#" class="d-flex align-items-center text-white" style="background-color: #000; padding: 6px 10px; border-radius: 16px; font-size: 14px; text-decoration: none;">
+                    <i class="fab fa-apple me-2"></i> Apple Store
+                </a>
+
+                <!-- Google Play Button -->
+                <a href="#" class="d-flex align-items-center text-white" style="background-color: #000; padding: 6px 10px; border-radius: 16px; font-size: 14px; text-decoration: none;">
+                    <i class="fab fa-google-play me-2"></i> Google Play
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+    <!-- EN/BDT Dropdown (added ms-3 for left margin) -->
+    <div class="dropdown ms-3 ml-2rem">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="languageCurrencyDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            EN / BDT
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageCurrencyDropdown">
+            <li><a class="dropdown-item" href="javascript:void(0)">EN / BDT</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)">EN / USD</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)">BN / BDT</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+<!-- Script -->
+<script>
+    const downloadBtn = document.getElementById('downloadAppBtn');
+    const qrBox = document.getElementById('qrDropdown');
+    const wrapper = document.getElementById('downloadAppWrapper');
+
+    wrapper.addEventListener('mouseenter', () => {
+        qrBox.style.display = 'block';
+    });
+
+    wrapper.addEventListener('mouseleave', () => {
+        qrBox.style.display = 'none';
+    });
+</script>
+
+
+
 
 
                 <!-- <ul class="list-inline h-100 d-none d-xl-flex justify-content-end align-items-center" style=" margin-bottom: -8px;">
@@ -282,9 +356,9 @@
                         <!-- Shopping Cart Section -->
                 <!-- <li class="list-inline-item p-1" id="shopping-cart">                            -->
                 <!-- Cart dropdown inside the shopping cart -->
-                <div class="d-none d-xl-block align-self-stretch ml-5 mr-0 has-transition bg-black-10"
+                <div class="d-none d-xl-block align-self-nav-cart-box dropdown bg-red h-100 showstretch ml-5 mr-0 has-transition bg-black-10"
                     data-hover="dropdown">
-                    <div class="nav-cart-box dropdown bg-red h-100" id="cart_items" style="width: max-content;">
+                    <div  class="nav-cart-box dropdown bg-red h-100" id="cart_items" style="width: max-content;">
                         @include('frontend.' . get_setting('homepage_select') . '.partials.cart')
                     </div>
                 </div>

@@ -211,8 +211,97 @@
                         <img class="img-fluid d-block w-100 rounded-lg-custom rounded" src="public/uploads/all/OuPFuFjrH0C2Tgqs3m8LAz1Uosn49XD3TAtKxzgN.jpg" style="height: 98%">
                     </div> --}}
 
+                    {{-- I modify this code --}}
+
+                  <div class="d-none d-md-block  align-items-center btn-primary  p-2 rounded" style= margin-left:1rem; id="category-menu-bar"
+                    style="cursor: pointer;">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <span class="circle mr-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                    viewBox="0 0 15 14">
+                                    <g id="Group_29240" data-name="Group 29240" transform="translate(-18 -18)">
+                                        <rect id="Rectangle_21398" data-name="Rectangle 21398" width="15"
+                                            height="2" transform="translate(18 24)" fill="#fff"></rect>
+                                        <rect id="Rectangle_21399" data-name="Rectangle 21399" width="15"
+                                            height="2" transform="translate(18 18)" fill="#fff"></rect>
+                                        <rect id="Rectangle_21400" data-name="Rectangle 21400" width="15"
+                                            height="2" transform="translate(18 30)" fill="#fff"></rect>
+                                    </g>
+                                </svg>
+                            </span>
+                            <span class="fw-700 fs-14 text-white mr-3 d-none d-md-block">{{ translate('All Categories') }}</span>
+
+                        </div>
+                        <!-- <i class="las la-angle-down text-white" id="category-menu-bar-icon" style="font-size: 1.2rem;"></i> -->
+                    </div>
+
+                </div>                  
+
+
+<!-- 🟦 Menu Section -->
+<div class="px-xl-5 mt-3">
+    <div class style="display: flex; gap: 2rem;"> <!-- gap-4 → gap-5 -->
+
+        <!-- SuperDeals (red & bold) -->
+        <a href="#" class="text-danger fw-bold" style="font-size: 17px; text-decoration: none;">
+            SuperDeals
+        </a>
+
+        <!-- Other menu items -->
+        <a href="#" class="text-dark" style="font-size: 17px; font-weight: 500; text-decoration: none;">
+            ShipCart Business
+        </a>
+        <a href="#" class="text-dark" style="font-size: 17px; font-weight: 500; text-decoration: none;">
+            Home & Garden
+        </a>
+        <a href="#" class="text-dark" style="font-size: 17px; font-weight: 500; text-decoration: none;">
+            Hair Extensions & Wigs
+        </a>
+        <a href="#" class="text-dark" style="font-size: 17px; font-weight: 500; text-decoration: none;">
+            Men's Clothing
+        </a>
+        <a href="#" class="text-dark" style="font-size: 17px; font-weight: 500; text-decoration: none;">
+            Accessories
+        </a>
+
+        <!-- More with down arrow -->
+  <!-- 🔻 Dropdown Menu with Hover -->
+<div class="dropdown dropdown-hover">
+    <a class="text-dark dropdown-toggle" href="#" role="button"
+       data-bs-toggle="dropdown" aria-expanded="false"
+       style="font-size: 17px; font-weight: 500; text-decoration: none;">
+        More
+    </a>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Toys & Hobbies</a></li>
+        <li><a class="dropdown-item" href="#">Beauty & Health</a></li>
+        <li><a class="dropdown-item" href="#">Sports & Outdoors</a></li>
+    </ul>
+</div>
+<style>
+/* Enable dropdown on hover */
+.dropdown-hover:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* prevent jump */
+}
+
+/* Prevent flickering when hovering between link and menu */
+.dropdown-hover .dropdown-toggle::after {
+    transition: transform 0.2s;
+}
+</style>
+
+
+    </div>
+</div>
+
+
+
+
+
                     <!-- Sliders (Always visible) -->
-                  <div class="col-12">
+                  <div class="col-12 mt-2">
                         <div class="d-flex">
                             <!-- Sliders -->
                             <div class="h-100 w-100">
@@ -328,7 +417,7 @@
                                             <!-- Floating Text and Button - Responsive -->
                                             <div class="position-absolute text-center w-100 px-2"
                                                 style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                                                <p class="fs-14 fs-md-14 mb-2 text-dark fw-bold">Click2Import is here to stand by your side</p>
+                                                <p class="fs-14 fs-md-14 mb-2 text-dark fw-bold">ShipCart is here to stand by your side</p>
                                                 <a href="/blog" class="btn btn-primary px-3 px-md-4 py-2 fs-12 fs-md-14 fw-bold mt-2">
                                                     Click Here to Learn More
                                                 </a>
@@ -738,7 +827,7 @@
                 <!-- Top Section -->
                 <div class="text-center">
                     <h3 class="fw-700 mb-sm-0">
-                        <span class="">{{ translate('How Click2Import Works') }}</span>
+                        <span class="">{{ translate('How ShipCart Works') }}</span>
                     </h3>
                 </div>
 
