@@ -23,10 +23,11 @@
             </g>
         </svg>
     </span>
-    <span class="d-none d-xl-block ml-2 fs-14 fw-700 text-white"><span class="fw-700">৳</span>{{ $total }}</span>
-    <span class="nav-box-text d-none d-xl-block ml-2 text-white fs-12">
+    <span class="d-none d-xl-block ml-2 fs-14 fw-700 text-dark"><span class="fw-700 text-dark">৳</span>{{ $total }}</span>
+    <span class="nav-box-text d-none d-xl-block ml-2 text-dark fs-12">
 
-        (<span class="cart-count">{{count($carts) > 0 ? count($carts) : 0 }}</span> {{translate('Items')}})
+        (<span class="cart-count text-dark">{{count($carts) > 0 ? count($carts) : 0 }}</span>)
+         (<span class="text-dark">{{ translate('Items') }}</span>)
 
     </span>
 </a>

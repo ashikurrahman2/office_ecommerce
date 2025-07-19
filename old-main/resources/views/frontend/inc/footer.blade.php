@@ -4,7 +4,7 @@
         <div class="row">
             <!-- Quick links -->
             <div class="col-md-3 col-sm-6">
-                <div class="text-center text-sm-left mt-3">
+                <div class="text-center text-sm-left p-3 mt-3">
                     <a href="{{ route('home') }}" class="d-block">
                         @if (get_setting('footer_logo') != null)
                             <img class="lazyload h-45px" src="{{ static_asset('assets/img/placeholder-rect.jpg') }}"
@@ -21,14 +21,26 @@
                     </div>
 
                     <!-- Contact Info Box -->
-                    <div class="">
-                        <p class="fs-14 text-dark mb-1">{{ get_setting('contact_address', null, App::getLocale()) }}</p>
-                        <p class="fs-14 text-dark mb-1">{{ get_setting('contact_phone') }}</p>
-                        <p>
-                            <a href="mailto:{{ get_setting('contact_email') }}"
-                                class="fs-14 text-dark hov-text-danger">{{ get_setting('contact_email') }}</a>
-                        </p>
+                   <div class="  border rounded">
+                        <div class="row">
+                            <div class="col-md-12 mb-2">
+                                <p class="mb-1 "> <strong class="text-muted">Address: </strong>  <span class="text-dark">{{ get_setting('contact_address', null, App::getLocale()) }}</span></p>
+                    
+                                <p class="mb-1">
+                                    <strong class="text-muted">Phone:</strong>
+                                    <span class="text-dark">{{ get_setting('contact_phone') }}</span>
+                                </p>
+                           
+                                <p class="mb-1">
+                                    <strong class="text-muted">Email:</strong>
+                                    <a href="mailto:{{ get_setting('contact_email') }}" class="text-decoration-none text-dark hov-text-danger">
+                                        {{ get_setting('contact_email') }}
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
 

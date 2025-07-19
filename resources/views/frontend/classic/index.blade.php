@@ -213,57 +213,156 @@
 
                     {{-- I modify this code --}}
 
-                  <div class="d-none d-md-block  align-items-center btn-primary  p-2 rounded" style= margin-left:1rem; id="category-menu-bar"
-                    style="cursor: pointer;">
-                    <div class="d-flex align-items-center justify-content-between">
+                 <div class="d-none d-md-block align-items-center p-2 px-5"
+     style="margin-left: 6rem; background: #f5f5f5; border-radius: 85px; cursor: pointer;"
+     id="category-menu-bar">
+
+                    <div class="d-flex align-items-center">
                         <div class="d-flex align-items-center">
                             <span class="circle mr-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
                                     viewBox="0 0 15 14">
                                     <g id="Group_29240" data-name="Group 29240" transform="translate(-18 -18)">
                                         <rect id="Rectangle_21398" data-name="Rectangle 21398" width="15"
-                                            height="2" transform="translate(18 24)" fill="#fff"></rect>
+                                            height="2" transform="translate(18 24)" fill="#000"></rect>
                                         <rect id="Rectangle_21399" data-name="Rectangle 21399" width="15"
-                                            height="2" transform="translate(18 18)" fill="#fff"></rect>
+                                            height="2" transform="translate(18 18)" fill="#000"></rect>
                                         <rect id="Rectangle_21400" data-name="Rectangle 21400" width="15"
-                                            height="2" transform="translate(18 30)" fill="#fff"></rect>
+                                            height="2" transform="translate(18 30)" fill="#000"></rect>
                                     </g>
                                 </svg>
                             </span>
-                            <span class="fw-700 fs-14 text-white mr-3 d-none d-md-block">{{ translate('All Categories') }}</span>
+                        <span class="fw-700 fs-14 text-dark ml-3 d-none d-md-block" style="cursor: pointer;">{{ translate('All Categories') }}</span>
+
 
                         </div>
                         <!-- <i class="las la-angle-down text-white" id="category-menu-bar-icon" style="font-size: 1.2rem;"></i> -->
                     </div>
+                </div>      
 
-                </div>                  
 
 
 <!-- 🟦 Menu Section -->
-<div class="px-xl-5 mt-3">
-    <div class style="display: flex; gap: 2rem;"> <!-- gap-4 → gap-5 -->
+<div class="px-xl-5 mt-2">
+    <div class style="display: flex; gap: 0rem;"> <!-- gap-4 → gap-5 -->
 
         <!-- SuperDeals (red & bold) -->
-        <a href="#" class="text-danger fw-bold" style="font-size: 17px; text-decoration: none;">
-            SuperDeals
-        </a>
+       <a href="#" class="fw-bold superdeal-link" style="font-size: 17px; text-decoration: none;  color:#fd384f;">
+    SuperDeals
+</a>
+<style>
+
+        .superdeal-link {
+        /* background-color: #f5f5f5; */
+        border-radius: 25px;
+               padding:1px 20px;
+        /* No color change here */
+    }
+    .superdeal-link:hover {
+        background-color: #f5f5f5;
+        border-radius: 25px;
+        padding:1px 20px;
+        /* No color change here */
+    }
+
+</style>
+.
+
+
+
 
         <!-- Other menu items -->
-        <a href="#" class="text-dark" style="font-size: 17px; font-weight: 500; text-decoration: none;">
-            ShipCart Business
+        <a href="#" class="text-dark shipcartbusiness" style="font-size: 17px; font-weight: 500; text-decoration: none;">
+            ShipCartBusiness
         </a>
-        <a href="#" class="text-dark" style="font-size: 17px; font-weight: 500; text-decoration: none;">
+
+                   <style>
+                 .shipcartbusiness{
+                         border-radius: 20px;
+                       padding: 1px 20px;
+      }
+
+    .shipcartbusiness:hover {
+        background-color: #f5f5f5;
+        border-radius: 25px;
+        padding: 1px 20px;
+       
+        /* No color change here */
+    }
+
+</style>
+        <a href="#" class="text-dark home" style="font-size: 17px; font-weight: 500; text-decoration: none;">
             Home & Garden
         </a>
-        <a href="#" class="text-dark" style="font-size: 17px; font-weight: 500; text-decoration: none;">
+
+                 <style>
+                    .home{
+                         border-radius: 20px;
+        padding: 1px 20px;
+                    }
+    .home:hover {
+        background-color: #f5f5f5;
+        border-radius: 20px;
+        padding: 1px 20px;
+        /* No color change here */
+    }
+
+</style>
+        <a href="#" class="text-dark hair" style="font-size: 17px; font-weight: 500; text-decoration: none;">
             Hair Extensions & Wigs
         </a>
-        <a href="#" class="text-dark" style="font-size: 17px; font-weight: 500; text-decoration: none;">
+
+                   <style>
+                 .hair{
+                         border-radius: 20px;
+                       padding: 1px 20px;
+      }
+
+    .hair:hover {
+        background-color: #f5f5f5;
+        border-radius: 20px;
+        padding: 1px 20px;
+        
+        /* No color change here */
+    }
+
+</style>
+        <a href="#" class="text-dark men" style="font-size: 17px; font-weight: 500; text-decoration: none;">
             Men's Clothing
         </a>
-        <a href="#" class="text-dark" style="font-size: 17px; font-weight: 500; text-decoration: none;">
+
+                   <style>
+                    .men{
+                         border-radius: 20px;
+        padding: 1px 20px;
+                    }
+    .men:hover {
+        background-color: #f5f5f5;
+        border-radius: 20px;
+        padding: 1px 20px;
+        /* No color change here */
+    }
+
+</style>
+        <a href="#" class="text-dark accesories" style="font-size: 17px; font-weight: 500; text-decoration: none;">
             Accessories
         </a>
+
+        
+        
+                   <style>
+                    .accesories{
+                         border-radius: 20px;
+        padding: 1px 20px;
+     }
+    .accesories:hover {
+        background-color: #f5f5f5;
+        border-radius: 20px;
+        padding: 1px 20px;
+        /* No color change here */
+    }
+
+</style>
 
         <!-- More with down arrow -->
   <!-- 🔻 Dropdown Menu with Hover -->
@@ -342,7 +441,7 @@
             <section class="container">
                 <div class="row">
                     <!-- Left Column (Top Categories + Featured Products) -->
-                    <div class="col-md-10">
+                    <div class="col-md-12">
                         <!-- Top Categories and Entrepreneur Row Section -->
                         <div class="mb-3">
                             <section class="container">
@@ -434,7 +533,7 @@
                             <section class="mb-2 mb-md-3 mt-2 mt-md-3">
                                 <div class="container pl-0">
                                    <div class="text-center mt-2">
-    <span class="fs-24 fw-700">{{ translate("Today's deals") }}</span>
+    <span class="fs-24 fw-700 mb-1">{{ translate("Today's deals") }}</span>
 </div>
 
                                    

@@ -1,5 +1,5 @@
 <!-- Top Bar -->
-<div class="d-none d-lg-block top-navbar bg-white z-1035 h-35px h-sm-auto" style="border-bottom: 1px solid #eee;">
+{{-- <div class="d-none d-lg-block top-navbar bg-white z-1035 h-35px h-sm-auto" style="border-bottom: 1px solid #eee;">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col">
@@ -16,9 +16,9 @@
                     <li class="list-inline-item pr-2">
                             <a class="icon-bg" href="{{ route('orders.track') }}"><i class="fa-solid fa-location-dot mr-2"> </i>{{ translate('Track Order') }}</a>
                     </li>
-                    {{-- <li class="list-inline-item pr-2">
+                    <li class="list-inline-item pr-2">
                            <a class="text-dark fs-11 d-inline-block py-2 clearAll" href="javascript:void(0)">{{ translate('Cache Clear') }}</a>
-                       </li> --}}
+                       </li>
                 </ul>
             </div>
 
@@ -42,7 +42,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <header class="@if (get_setting('header_stikcy') == 'on') sticky-top @endif z-1020 bg-white">
     <!-- Search Bar -->
@@ -98,7 +98,7 @@
                         @endphp
                         @if ($header_logo != null)
                             <img src="{{ uploaded_asset($header_logo) }}" alt="{{ env('APP_NAME') }}"
-                                class="mw-100 h-50px h-md-40px pl-md-3" height="400" width="235">
+                                class="mw-100 h-80px h-md-60px w-100px w-md-200px pl-md-3" style="margin-left: 30px;">
                         @else
                             <img src="{{ static_asset('assets/img/logo.jpg') }}" alt="{{ env('APP_NAME') }}"
                                 class="mw-100 h-30px h-md-40px" height="40">
@@ -111,7 +111,7 @@
                     <div class="position-relative flex-grow-1 my-1 px-lg-0">
                        <form id="searchForm" action="{{ route('search') }}" method="GET"
     class="stop-propagation mb-0" enctype="multipart/form-data">
-    <div class="input-group" style="overflow: hidden; border: 1px solid #007bff; border-radius: 60px;">
+    <div class="input-group" style="overflow: hidden; border: 1px solid #000; border-radius: 60px; width: 103%;">
 
         <!-- Country dropdown container (static name for now) -->
         {{-- <div class="input-group-prepend">
@@ -144,7 +144,7 @@
         </button>
 
         <!-- Search Button -->
-        <button class="btn btn-primary search-button" type="submit" id="button-addon2">
+        <button class="btn search-button" type="submit" id="button-addon2" style="background:#000">
             <svg id="Group_723" data-name="Group 723" xmlns="http://www.w3.org/2000/svg"
                 width="20.001" height="20" viewBox="0 0 20.001 20">
                 <path id="Path_3090" data-name="Path 3090"
@@ -358,7 +358,7 @@
                 <!-- Cart dropdown inside the shopping cart -->
                 <div class="d-none d-xl-block align-self-stretch ml-5 mr-0 has-transition bg-black-10"
                     data-hover="dropdown">
-                    <div style="background-color:unset !important;" class="nav-cart-box dropdown bg-red h-100" id="cart_items" style="width: max-content;">
+                    <div style="background-color:white;" class="nav-cart-box dropdown h-100" id="cart_items" style="width: max-content;">
                         @include('frontend.' . get_setting('homepage_select') . '.partials.cart')
                     </div>
                 </div>
@@ -402,7 +402,7 @@
                             <a href="{{ route('user.login') }}"
                                 class="text-reset opacity-60 hov-opacity-100 hov-text-danger fs-12 d-inline-block border-right border-soft-light border-width-2 pr-2 ml-3">{{ translate('Login') }}</a>
                             <a href="{{ route('user.registration') }}"
-                                class="text-reset opacity-60 hov-opacity-100 hov-text-danger fs-12 d-inline-block py-2 pl-2">{{ translate('Registration') }}</a>
+                                class="text-reset opacity-60 hov-opacity-100 hov-text-danger fs-12 d-inline-block py-2 pl-2">{{ translate('Register') }}</a>
                         </span>
                     @endauth
                 </div>
