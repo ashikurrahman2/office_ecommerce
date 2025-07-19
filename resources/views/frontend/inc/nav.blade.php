@@ -215,37 +215,99 @@
 </div>
 
 </div>
+<!-- Language/Currency Dropdown -->
+<!-- Language / Currency Button -->
 
-    <!-- EN/BDT Dropdown (added ms-3 for left margin) -->
-    <div class="dropdown ms-3 ml-2rem">
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="languageCurrencyDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            EN / BDT
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageCurrencyDropdown">
-            <li><a class="dropdown-item" href="javascript:void(0)">EN / BDT</a></li>
-            <li><a class="dropdown-item" href="javascript:void(0)">EN / USD</a></li>
-            <li><a class="dropdown-item" href="javascript:void(0)">BN / BDT</a></li>
-        </ul>
+ <div class="dropdown ms-3 ml-2rem">
+  <button id="languageToggleBtn" class="btn btn-outline-secondary">
+    EN / BDT
+  </button>
+
+  <!-- Hidden Dropdown -->
+  <div id="languageDropdown" class="dropdown-box shadow p-4 rounded" style="display: none; position: absolute; top: 110%; right: 0; background: white; width: 280px; z-index: 999;">
+    <div class="mb-3">
+      <label for="shipTo" class="form-label fw-bold">Ship to</label>
+      <select class="form-select py-3" id="shipTo">
+        <option selected>🇧🇩 Bangladesh</option>
+        <option>🇺🇸 USA</option>
+        <option>🇮🇳 India</option>
+      </select>
     </div>
+
+    <div class="mb-3">
+      <label for="languageSelect" class="form-label fw-bold">Language</label>
+      <select class="form-select py-3" id="languageSelect">
+        <option selected>English</option>
+        <option>বাংলা</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="currencySelect" class="form-label fw-bold">Currency</label>
+      <select class="form-select py-3" id="currencySelect">
+        <option selected>BDT ( Bangladeshi Taka )</option>
+        <option>USD ( US Dollar )</option>
+      </select>
+    </div>
+
+    <button class="btn btn-dark w-100 py-2 mt-2">Save</button>
+  </div>
 </div>
+
+
+
+<style>
+  .dropdown-box select {
+    border-radius: 8px;
+  }
+</style>
+
+
+
+
+{{-- Dropdown script --}}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const dropdownToggle = document.getElementById('dropdownMenuButton1');
+    const dropdownMenu = dropdownToggle.nextElementSibling;
+
+    dropdownToggle.addEventListener('click', function () {
+      dropdownMenu.classList.toggle('show');
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.remove('show');
+      }
+    });
+  });
+</script>
+
 
 
 
 
 <!-- Script -->
 <script>
-    const downloadBtn = document.getElementById('downloadAppBtn');
-    const qrBox = document.getElementById('qrDropdown');
-    const wrapper = document.getElementById('downloadAppWrapper');
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleBtn = document.getElementById('languageToggleBtn');
+    const dropdown = document.getElementById('languageDropdown');
 
-    wrapper.addEventListener('mouseenter', () => {
-        qrBox.style.display = 'block';
+    toggleBtn.addEventListener('click', function (e) {
+      e.stopPropagation(); // Prevent clicking outside from immediately closing it
+      dropdown.style.display = dropdown.style.display === 'none' || dropdown.style.display === '' ? 'block' : 'none';
     });
 
-    wrapper.addEventListener('mouseleave', () => {
-        qrBox.style.display = 'none';
+    // Close dropdown if clicked outside
+    document.addEventListener('click', function (e) {
+      if (!dropdown.contains(e.target) && !toggleBtn.contains(e.target)) {
+        dropdown.style.display = 'none';
+      }
     });
+  });
 </script>
+
 
 
 
